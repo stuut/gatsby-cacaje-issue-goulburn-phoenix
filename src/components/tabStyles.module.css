@@ -1,0 +1,13 @@
+
+.tabContent{
+display:block;
+max-width:450px;
+margin:0 auto;
+}
+
+.tabsContainer ol{
+display:flex;
+max-width: 280px;
+margin: 0 auto;
+justify-content:center;
+}

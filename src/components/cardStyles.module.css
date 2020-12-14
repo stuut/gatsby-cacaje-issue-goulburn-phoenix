@@ -1,0 +1,142 @@
+.lightCard{
+  margin: .5em 0 .5em 0;
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-duration: 0.25s;
+  transition-property: transform;
+}
+.lightCard:hover {
+  transform: translateY(-5px);
+}
+.lightCard p,
+.lightCard h4{
+  color:#000000;
+}
+
+
+
+.cardText > p{
+  line-height: 1.4em;
+  margin-top: 7px;
+}
+
+.darkCardDate{
+    display:none;
+    color:#ffffff;
+    margin-bottom:5px;
+}
+
+.darkCardText{
+  display:block;
+  padding: 0.0em 0.0em 0em 0.0em;
+  line-height: 1.4em;
+  margin-top: 7px;
+}
+
+.darkCardDateSpan{
+  display:block;
+  color: #999;
+}
+
+.cardInfo{
+padding: 0.5em 0.5em 1em;
+}
+
+.category {
+  display: inline-block;
+  background: #8fc744;
+  color: #ffffff;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 2px 7px 1px 7px;
+  margin: 2px 7px 2px 0px;
+}
+.category a{
+  color:#ffffff;
+  text-decoration:none;
+}
+
+
+
+.cardInfo h4,
+.cardInfo p{
+  color:#000000
+}
+
+
+.lightCardDate{
+  display:block
+}
+
+
+
+
+@media screen and (min-width:768px){
+
+  .lightCard{
+    margin: 0 0 1em 0;
+  }
+
+
+  .darkCardText{
+    display:none;
+  }
+
+  .lightCardDate{
+    display:inline-block
+  }
+
+
+
+  .darkCard .cardInfo h4,
+  .darkCard .cardInfo p{
+    color:#ffffff
+  }
+
+  .darkCardDateSpan{
+    display:none;
+  }
+
+  .darkCardDate{
+    display:block;
+  }
+
+  .darkCard > a > div {
+    min-height: 400px !important;
+  }
+  .darkCard h4{
+    color:#ffffff;
+  }
+
+  .cardInfo{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding:0px 20px 0px 0px;
+  }
+
+  .darkCardCover{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color:rgba(0, 0, 0, .3)
+  }
+  .darkCard{
+    margin: 0 0 1em 0;
+    background:#000000;
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition-duration: 0.25s;
+    transition-property: transform;
+    position:relative;
+    min-height: 400px;
+  }
+  .sectionHeadingText.dark p{
+    color:#ffffff;
+  }
+
+  .darkCard:hover {
+    transform: translateY(-5px);
+  }
+
+  }

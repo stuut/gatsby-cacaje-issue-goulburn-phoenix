@@ -1,0 +1,270 @@
+
+.featured{
+  background:#ffffff;
+}
+
+.indexMainTitle h4,
+.indexMainTitle p{
+  color:#000000
+}
+
+h4.title{
+  margin-top:0px;
+}
+
+h4.mainTitle{
+  margin-top:15px;
+}
+
+body.light h4,
+body.light p{
+  color:#000000
+}
+body.dark h4,
+body.dark p{
+  color:#ffffff
+}
+
+.indexMainTitle h4{
+  font-size: 25px;
+  margin-top:10px;
+}
+
+.indexMainTitle p{
+  margin-top:10px;
+  line-height: 1.4em;
+}
+
+.indexRightSmall{
+  display:flex
+}
+.indexRightSmall > div:nth-child(1){
+  flex:1
+}
+
+.indexRightSmall > div:nth-child(2) h4{
+  font-size: 20px;
+}
+.indexTextSmall p,
+.indexTextSmall h4{
+  color:#000000
+}
+
+.darkPostsRow > div{
+  background: #ffffff;
+}
+
+.indexRightSmall > div:nth-child(1) > a > div{
+  height:100%;
+  min-height: 100px;
+}
+
+.indexRightSmallText{
+  display:none;
+}
+
+
+.indexRightSmall > div:nth-child(2){
+  flex:3
+}
+
+
+.category {
+  display: inline-block;
+  background: #8fc744;
+  color: #ffffff;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 2px 7px 1px 7px;
+  margin: 5px 5px 5px 0px;
+}
+.category a{
+  color:#ffffff;
+  text-decoration:none;
+}
+
+.indexBackgroundContainer{
+  background:#333333;
+}
+
+.indexBackgroundContainer .sectionHeadingText p{
+  color:#ffffff;
+}
+
+.featured .indexMainTitle{
+  padding: 5px 10px 10px 10px;
+}
+
+.mainIndexContainer{
+  padding: 20px;
+}
+
+.darkPostsRow,
+.mainIndexContainer .indexPost{
+  margin-bottom:20px;
+}
+
+.indexTextSmall{
+  padding:5px 10px 10px 10px;
+}
+
+@media screen and (max-width:768px){
+  .showDesktopOnly{
+    display:none;
+  }
+}
+
+
+
+@media screen and (min-width:768px){
+
+  .indexRightSmall > div:nth-child(2) h4{
+    font-size: 27px;
+  }
+
+
+
+
+  h4.mainTitle{
+    margin-top:0px;
+  }
+
+  .indexBackgroundContainer{
+    background:#f2f2f2;
+  }
+
+  .indexBackgroundContainer .sectionHeadingText p{
+    color:#000000;
+  }
+
+
+  .mainIndexContainer.dark > top{
+    padding: 0 10px;
+  }
+
+  .featured.indexPost.dark h4{
+    color:#ffffff;
+  }
+
+  .featured > a > span{
+
+  }
+
+  .indexTextSmall h4{
+    font-size: 1.5rem;
+  }
+  .bottom{
+    display:flex;
+    justify-content: space-between;
+  }
+
+    .darkPostsRow{
+      flex: 0 0 31.333%;
+        margin: 0 1% 1em 1%;
+    }
+    .mainIndexContainer.dark .featured.indexPost.dark{
+      margin: 0 1% 1em 1%;
+    }
+
+    .mainIndexContainer.dark .featured.indexPost.dark .gatsby-image-wrapper{
+          max-height: 40vw;
+    }
+
+
+    .mainIndexContainer .right .category{
+    font-size: 10px;
+    vertical-align: top;
+    margin-top: 0px;
+  }
+  .indexTextSmall.categorySection p{
+  font-size: .8rem;
+  }
+  .mainIndexContainer{
+    padding: 20px 10px 10px 10px;
+  }
+  .mainIndexContainer.dark{
+    display:block;
+  }
+  .mainIndexContainer .right > div:last-child{
+    margin-bottom:0px;
+  }
+  .mainIndexContainer .left{
+    flex: 0 0 49.2%;
+  }
+
+  .showMobileOnly{
+    display:none;
+  }
+.featured{
+  position:relative;
+}
+.indexRightSmall{
+  display:flex;
+}
+
+.indexRightSmall > div:nth-child(1){
+  flex: 0 0 30%;
+}
+.indexRightSmall > div:nth-child(2){
+  flex: 0 0 70%;
+}
+.mainIndexContainer .indexTextSmall{
+  padding-left:10px;
+}
+
+
+.featured .indexMainTitle{
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #ffffff;
+  width: 80%;
+}
+.featured .indexMainTitle h4{
+    font-size: 3.5rem;
+  }
+
+.darkCover{
+  position:absolute;
+  left:0;
+  right:0;
+  top:0px;
+  bottom:0px;
+  background:rgba(0, 0, 0, .3)
+
+}
+
+}
+@media screen and (min-width:990px){
+    .mainIndexContainer{
+      display:flex;
+    }
+    .mainIndexContainer.light .right{
+      flex: 0 0 50.7%;
+      padding-left:20px;
+    }
+
+}
+
+@media screen and (min-width:769px) and (max-width:989px){
+  .mainIndexContainer.light .right{
+  display:flex
+  }
+.mainIndexContainer.light .indexPost{
+  flex: 0 0 31.333%;
+    margin: 0 1% 1em 1%;
+  }
+
+  .mainIndexContainer.light .indexTextSmall {
+    padding-left: 0px;
+    padding-top:10px;
+}
+
+  .mainIndexContainer.light .indexRightSmall{
+    flex-direction:column;
+  }
+
+}

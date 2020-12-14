@@ -1,0 +1,33 @@
+.mailchimp_div{
+  display:block;
+  max-width:900px;
+  margin:0 auto;
+}
+
+.mailchimp_div input[type="email"]{
+  display: inline-block;
+  width: 75%;
+  height: 40px;
+  border: 0;
+  -webkit-appearance: none;
+  padding-left: 10px;
+  border-radius:0;
+}
+
+.mailchimp_div input[type="email"]:focus{
+  border:1px solid #8fc744;
+  outline: 0;
+}
+
+.mailchimp_div input[type="submit"]{
+  display: inline-block;
+  width: 25%;
+  height: 40px;
+  border-width: 0;
+  background-color: #8fc744!important;
+  color: #fff;
+  font-size: .9rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius:0;
+}

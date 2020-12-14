@@ -1,0 +1,164 @@
+.body.post{
+max-width: 700px;
+padding: 2.8em 1em 1em 1em;
+}
+.body{
+padding: 2em 1em 1em 1em;
+}
+
+.body.author{
+padding: 2em 1em 0em 1em;
+}
+
+.body.post h2{
+  margin-bottom:15px;
+}
+
+.body.post a{
+  overflow-wrap: break-word;
+   word-wrap: break-word;
+
+   -ms-word-break: break-all;
+   /* This is the dangerous one in WebKit, as it breaks things wherever */
+   word-break: break-all;
+   /* Instead use this non-standard one: */
+   word-break: break-word;
+
+   /* Adds a hyphen where the word breaks, if supported (No Blink) */
+   -ms-hyphens: auto;
+   -moz-hyphens: auto;
+   -webkit-hyphens: auto;
+   hyphens: auto;
+
+}
+
+.body table{
+  border: 1px solid #e3e3e3;
+  width:100%;
+}
+.body table th,
+.body table td{
+  padding:5px;
+  border-right:1px solid #e3e3e3;
+}
+
+.body table thead tr th{
+  background:#e3e3e3;
+  font-weight: 900;
+  text-align: left;
+}
+
+.body table th:last-child,
+.body table td:last-child{
+  border-right:0px solid #e3e3e3;
+}
+
+.body table tr{
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.body p {
+    line-height: 1.8;
+    margin: 0 0 1em 0;
+  }
+.body.post > div > p:first-child{
+    font-size:1.3rem;
+    border-bottom: 1px solid #e3e3e3;
+    padding-bottom: 5%;
+  }
+
+.body a.gatsby-resp-image-link{
+  border-bottom: none;
+  box-shadow: none;
+}
+.body p small {
+    font-size: .8rem;
+    line-height: 1.4em;
+    display: block;
+    margin-top: 5px;
+}
+
+
+.body a {
+    border-bottom: 5px solid #8fc744;
+  }
+.body a:hover {
+    color:#8fc744;
+  }
+
+.body   del {
+    text-decoration: line-through;
+  }
+.body   strong {
+    font-weight: 900;
+  }
+.body   em {
+    font-style: italic;
+    text-decoration: none;
+  }
+
+.body   ul,
+.body   ol {
+    margin: 0 0 2em 1em;
+
+  }
+
+.body   ul li {
+       list-style: disc;
+      list-style-position: outside;
+      line-height: 2;
+      font-size: 90%;
+  }
+
+.body   ul li:last-child{
+    margin: 0;
+  }
+
+.body   ol li {
+    list-style: decimal;
+      list-style-position: inside;
+      line-height: 2;
+  }
+.body   ol li:last-child{
+    margin: 0;
+  }
+
+.body   hr {
+    border-style: solid;
+    border-color: #8fc744;
+    margin: 0 0 2em 0;
+  }
+
+.body   blockquote {
+    font-style: italic;
+    border-left: 4px solid #8fc744;
+    padding: 0 0 0 0.5em;
+  }
+
+.body   pre {
+    margin: 0 0 2em 0;
+    border-radius: 2px;
+    background: #8fc744 !important;
+
+  }
+
+.body pre span {
+    background: inherit !important;
+  }
+
+.body h3{
+      font-size: 25px;
+      margin-bottom: 10px;
+}
+
+.stickyArea-ads.tags{
+  display: block;
+  margin: 2em auto 2em auto;
+  max-width: 930px;
+}
+
+.stickyArea.tags{
+  display: block;
+  margin: 2em auto 2em auto;
+  max-width: 690px;
+}

@@ -1,0 +1,31 @@
+.sectionHeadingText{
+  text-align:center;
+  font-size: 1.3rem;
+  margin: 2em 1em 1em 1em;
+  text-transform: uppercase;
+}
+.sectionHeadingText p{
+  display:inline-block;
+  font-size:1.3rem;
+  position:relative;
+}
+.dark p{
+color:#ffffff
+}
+.sectionHeadingText p::after{
+  content:'';
+  width: 90%;
+  height: 4px;
+  background: #8fc744;
+  display: block;
+  position: absolute;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+@media screen and (max-width:480px){
+  .sectionHeadingText{
+    margin: .8em 1em 1em 1em;
+  }
+}

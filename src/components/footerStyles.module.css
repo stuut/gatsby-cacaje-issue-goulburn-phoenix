@@ -1,0 +1,29 @@
+@media screen and (min-width:768px){
+  .footerWrap{
+    display:flex;
+  }
+  .footerWrap > div{
+     flex: 0 0 33.333%;
+     padding:10px;
+  }
+}
+.footerWrap h4,
+.footerWrap p{
+  color:#ffffff;
+}
+.footerWrap h4{
+  font-size:1.5rem
+}
+
+.footerWrap p{
+  font-size:.9rem;
+}
+.footerWrap a{
+  color:#8fc744;
+  width: 35px;
+  height: 35px;
+}
+
+.footerWrap .contact p{
+  margin-bottom:10px;
+}

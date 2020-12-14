@@ -1,0 +1,735 @@
+### Type definitions saved at 2020-10-21T08:03:46.908Z ###
+
+type File implements Node @dontInfer {
+  sourceInstanceName: String!
+  absolutePath: String!
+  relativePath: String!
+  extension: String!
+  size: Int!
+  prettySize: String!
+  modifiedTime: Date! @dateformat
+  accessTime: Date! @dateformat
+  changeTime: Date! @dateformat
+  birthTime: Date! @dateformat
+  root: String!
+  dir: String!
+  base: String!
+  ext: String!
+  name: String!
+  relativeDirectory: String!
+  dev: Int!
+  mode: Int!
+  nlink: Int!
+  uid: Int!
+  gid: Int!
+  rdev: Int!
+  ino: Float!
+  atimeMs: Float!
+  mtimeMs: Float!
+  ctimeMs: Float!
+  atime: Date! @dateformat
+  mtime: Date! @dateformat
+  ctime: Date! @dateformat
+  birthtime: Date @deprecated(reason: "Use `birthTime` instead")
+  birthtimeMs: Float @deprecated(reason: "Use `birthTime` instead")
+  blksize: Int
+  blocks: Int
+  url: String
+}
+
+type Directory implements Node @dontInfer {
+  sourceInstanceName: String!
+  absolutePath: String!
+  relativePath: String!
+  extension: String!
+  size: Int!
+  prettySize: String!
+  modifiedTime: Date! @dateformat
+  accessTime: Date! @dateformat
+  changeTime: Date! @dateformat
+  birthTime: Date! @dateformat
+  root: String!
+  dir: String!
+  base: String!
+  ext: String!
+  name: String!
+  relativeDirectory: String!
+  dev: Int!
+  mode: Int!
+  nlink: Int!
+  uid: Int!
+  gid: Int!
+  rdev: Int!
+  ino: Float!
+  atimeMs: Float!
+  mtimeMs: Float!
+  ctimeMs: Float!
+  atime: Date! @dateformat
+  mtime: Date! @dateformat
+  ctime: Date! @dateformat
+  birthtime: Date @deprecated(reason: "Use `birthTime` instead")
+  birthtimeMs: Float @deprecated(reason: "Use `birthTime` instead")
+  blksize: Int
+  blocks: Int
+}
+
+type SitePage implements Node @dontInfer {
+  path: String!
+  component: String!
+  internalComponentName: String!
+  componentChunkName: String!
+  matchPath: String
+}
+
+type MarkdownHeading {
+  id: String
+  value: String
+  depth: Int
+}
+
+enum MarkdownHeadingLevels {
+  h1
+  h2
+  h3
+  h4
+  h5
+  h6
+}
+
+enum MarkdownExcerptFormats {
+  PLAIN
+  HTML
+  MARKDOWN
+}
+
+type MarkdownWordCount {
+  paragraphs: Int
+  sentences: Int
+  words: Int
+}
+
+type MarkdownRemark implements Node @childOf(mimeTypes: ["text/markdown", "text/x-markdown"], types: [], many: false) @derivedTypes @dontInfer {
+  frontmatter: MarkdownRemarkFrontmatter
+  excerpt: String
+  rawMarkdownBody: String
+}
+
+type MarkdownRemarkFrontmatter {
+  title: String
+}
+
+enum ImageFormat {
+  NO_CHANGE
+  JPG
+  PNG
+  WEBP
+}
+
+enum ImageFit {
+  COVER
+  CONTAIN
+  FILL
+  INSIDE
+  OUTSIDE
+}
+
+enum ImageCropFocus {
+  CENTER
+  NORTH
+  NORTHEAST
+  EAST
+  SOUTHEAST
+  SOUTH
+  SOUTHWEST
+  WEST
+  NORTHWEST
+  ENTROPY
+  ATTENTION
+}
+
+input DuotoneGradient {
+  highlight: String!
+  shadow: String!
+  opacity: Int
+}
+
+enum PotraceTurnPolicy {
+  TURNPOLICY_BLACK
+  TURNPOLICY_WHITE
+  TURNPOLICY_LEFT
+  TURNPOLICY_RIGHT
+  TURNPOLICY_MINORITY
+  TURNPOLICY_MAJORITY
+}
+
+input Potrace {
+  turnPolicy: PotraceTurnPolicy
+  turdSize: Float
+  alphaMax: Float
+  optCurve: Boolean
+  optTolerance: Float
+  threshold: Int
+  blackOnWhite: Boolean
+  color: String
+  background: String
+}
+
+type ImageSharp implements Node @childOf(types: ["File"]) @dontInfer {
+  fixed(width: Int, height: Int, base64Width: Int, jpegProgressive: Boolean = true, pngCompressionSpeed: Int = 4, grayscale: Boolean = false, duotone: DuotoneGradient, traceSVG: Potrace, quality: Int, jpegQuality: Int, pngQuality: Int, webpQuality: Int, toFormat: ImageFormat = NO_CHANGE, toFormatBase64: ImageFormat = NO_CHANGE, cropFocus: ImageCropFocus = ATTENTION, fit: ImageFit = COVER, background: String = "rgba(0,0,0,1)", rotate: Int = 0, trim: Float = 0): ImageSharpFixed
+  resolutions(width: Int, height: Int, base64Width: Int, jpegProgressive: Boolean = true, pngCompressionSpeed: Int = 4, grayscale: Boolean = false, duotone: DuotoneGradient, traceSVG: Potrace, quality: Int, jpegQuality: Int, pngQuality: Int, webpQuality: Int, toFormat: ImageFormat = NO_CHANGE, toFormatBase64: ImageFormat = NO_CHANGE, cropFocus: ImageCropFocus = ATTENTION, fit: ImageFit = COVER, background: String = "rgba(0,0,0,1)", rotate: Int = 0, trim: Float = 0): ImageSharpResolutions @deprecated(reason: "Resolutions was deprecated in Gatsby v2. It's been renamed to \"fixed\" https://example.com/write-docs-and-fix-this-example-link")
+  fluid(
+    maxWidth: Int
+    maxHeight: Int
+    base64Width: Int
+    grayscale: Boolean = false
+    jpegProgressive: Boolean = true
+    pngCompressionSpeed: Int = 4
+    duotone: DuotoneGradient
+    traceSVG: Potrace
+    quality: Int
+    jpegQuality: Int
+    pngQuality: Int
+    webpQuality: Int
+    toFormat: ImageFormat = NO_CHANGE
+    toFormatBase64: ImageFormat = NO_CHANGE
+    cropFocus: ImageCropFocus = ATTENTION
+    fit: ImageFit = COVER
+    background: String = "rgba(0,0,0,1)"
+    rotate: Int = 0
+    trim: Float = 0
+    sizes: String = ""
+
+    """
+    A list of image widths to be generated. Example: [ 200, 340, 520, 890 ]
+    """
+    srcSetBreakpoints: [Int] = []
+  ): ImageSharpFluid
+  sizes(
+    maxWidth: Int
+    maxHeight: Int
+    base64Width: Int
+    grayscale: Boolean = false
+    jpegProgressive: Boolean = true
+    pngCompressionSpeed: Int = 4
+    duotone: DuotoneGradient
+    traceSVG: Potrace
+    quality: Int
+    jpegQuality: Int
+    pngQuality: Int
+    webpQuality: Int
+    toFormat: ImageFormat = NO_CHANGE
+    toFormatBase64: ImageFormat = NO_CHANGE
+    cropFocus: ImageCropFocus = ATTENTION
+    fit: ImageFit = COVER
+    background: String = "rgba(0,0,0,1)"
+    rotate: Int = 0
+    trim: Float = 0
+    sizes: String = ""
+
+    """
+    A list of image widths to be generated. Example: [ 200, 340, 520, 890 ]
+    """
+    srcSetBreakpoints: [Int] = []
+  ): ImageSharpSizes @deprecated(reason: "Sizes was deprecated in Gatsby v2. It's been renamed to \"fluid\" https://example.com/write-docs-and-fix-this-example-link")
+  original: ImageSharpOriginal
+  resize(width: Int, height: Int, quality: Int, jpegQuality: Int, pngQuality: Int, webpQuality: Int, jpegProgressive: Boolean = true, pngCompressionLevel: Int = 9, pngCompressionSpeed: Int = 4, grayscale: Boolean = false, duotone: DuotoneGradient, base64: Boolean = false, traceSVG: Potrace, toFormat: ImageFormat = NO_CHANGE, cropFocus: ImageCropFocus = ATTENTION, fit: ImageFit = COVER, background: String = "rgba(0,0,0,1)", rotate: Int = 0, trim: Float = 0): ImageSharpResize
+}
+
+type ImageSharpFixed {
+  base64: String
+  tracedSVG: String
+  aspectRatio: Float
+  width: Float!
+  height: Float!
+  src: String!
+  srcSet: String!
+  srcWebp: String
+  srcSetWebp: String
+  originalName: String
+}
+
+type ImageSharpResolutions {
+  base64: String
+  tracedSVG: String
+  aspectRatio: Float
+  width: Float!
+  height: Float!
+  src: String!
+  srcSet: String!
+  srcWebp: String
+  srcSetWebp: String
+  originalName: String
+}
+
+type ImageSharpFluid {
+  base64: String
+  tracedSVG: String
+  aspectRatio: Float!
+  src: String!
+  srcSet: String!
+  srcWebp: String
+  srcSetWebp: String
+  sizes: String!
+  originalImg: String
+  originalName: String
+  presentationWidth: Int
+  presentationHeight: Int
+}
+
+type ImageSharpSizes {
+  base64: String
+  tracedSVG: String
+  aspectRatio: Float!
+  src: String!
+  srcSet: String!
+  srcWebp: String
+  srcSetWebp: String
+  sizes: String!
+  originalImg: String
+  originalName: String
+  presentationWidth: Int
+  presentationHeight: Int
+}
+
+type ImageSharpOriginal {
+  width: Float
+  height: Float
+  src: String
+}
+
+type ImageSharpResize {
+  src: String
+  tracedSVG: String
+  width: Int
+  height: Int
+  aspectRatio: Float
+  originalName: String
+}
+
+type ContentfulAdvertisements implements Node @derivedTypes @dontInfer {
+  ads: [ContentfulAdModule] @link(by: "id", from: "ads___NODE")
+  title: String
+  displayAds: Boolean
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulAdvertisementsSys
+  node_locale: String
+}
+
+type ContentfulAdModule implements Node @derivedTypes @dontInfer {
+  link: String
+  title: String
+  adPosition: [String]
+  image: ContentfulAsset @link(by: "id", from: "image___NODE")
+  advertisements: [ContentfulAdvertisements] @link(by: "id", from: "advertisements___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulAdModuleSys
+  node_locale: String
+}
+
+type ContentfulAsset implements Node @derivedTypes @dontInfer {
+  contentful_id: String
+  file: ContentfulAssetFile
+  title: String
+  description: String
+  node_locale: String
+  localFile: File @link(by: "id", from: "localFile___NODE")
+}
+
+type ContentfulAssetFile @derivedTypes {
+  url: String
+  details: ContentfulAssetFileDetails
+  fileName: String
+  contentType: String
+}
+
+type ContentfulAssetFileDetails @derivedTypes {
+  size: Int
+  image: ContentfulAssetFileDetailsImage
+}
+
+type ContentfulAssetFileDetailsImage {
+  width: Int
+  height: Int
+}
+
+type ContentfulAdModuleSys @derivedTypes {
+  revision: Int
+  contentType: ContentfulAdModuleSysContentType
+}
+
+type ContentfulAdModuleSysContentType @derivedTypes {
+  sys: ContentfulAdModuleSysContentTypeSys
+}
+
+type ContentfulAdModuleSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type ContentfulAdvertisementsSys @derivedTypes {
+  revision: Int
+  contentType: ContentfulAdvertisementsSysContentType
+}
+
+type ContentfulAdvertisementsSysContentType @derivedTypes {
+  sys: ContentfulAdvertisementsSysContentTypeSys
+}
+
+type ContentfulAdvertisementsSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulModularPage implements Node @dontInfer {
+  sections: [ContentfulModule]
+}
+
+type ContentfulModule implements Node @derivedTypes @dontInfer {
+  postsToShow: String
+  title: String
+  coverStory: Boolean
+  moduleDesignType: String
+  references: [ContentfulCategory] @link(by: "id", from: "references___NODE")
+  modular_page: [ContentfulModularPage] @link(by: "id", from: "modular page___NODE") @proxy(from: "modular page___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulModuleSys
+  node_locale: String
+}
+
+type ContentfulCategory implements Node @derivedTypes @dontInfer {
+  title: String
+  slug: String
+  post: [ContentfulPost] @link(by: "id", from: "post___NODE")
+  module: [ContentfulModule] @link(by: "id", from: "module___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulCategorySys
+  node_locale: String
+}
+
+type ContentfulPost implements Node @derivedTypes @dontInfer {
+  video: String
+  seoTitle: String
+  image: ContentfulAsset @link(by: "id", from: "image___NODE")
+  title: String
+  slug: String
+  publishDate: Date @dateformat
+  coverStory: Boolean
+  categories: [ContentfulCategory] @link(by: "id", from: "categories___NODE")
+  author: ContentfulAuthor @link(by: "id", from: "author___NODE")
+  copy: contentfulPostCopyTextNode @link(by: "id", from: "copy___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulPostSys
+  node_locale: String
+  tags: [ContentfulTag] @link(by: "id", from: "tags___NODE")
+}
+
+type ContentfulAuthor implements Node @derivedTypes @dontInfer {
+  address: String
+  phoneNumber: String
+  website: String
+  email: String
+  facebook: String
+  instagram: String
+  twitter: String
+  title: String
+  slug: String
+  image: ContentfulAsset @link(by: "id", from: "image___NODE")
+  post: [ContentfulPost] @link(by: "id", from: "post___NODE")
+  copy: contentfulAuthorCopyTextNode @link(by: "id", from: "copy___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulAuthorSys
+  node_locale: String
+}
+
+type contentfulAuthorCopyTextNode implements Node @dontInfer {
+  copy: String
+}
+
+type ContentfulAuthorSys @derivedTypes {
+  revision: Int
+  contentType: ContentfulAuthorSysContentType
+}
+
+type ContentfulAuthorSysContentType @derivedTypes {
+  sys: ContentfulAuthorSysContentTypeSys
+}
+
+type ContentfulAuthorSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulPostCopyTextNode implements Node @dontInfer {
+  copy: String
+}
+
+type ContentfulPostSys @derivedTypes {
+  revision: Int
+  contentType: ContentfulPostSysContentType
+}
+
+type ContentfulPostSysContentType @derivedTypes {
+  sys: ContentfulPostSysContentTypeSys
+}
+
+type ContentfulPostSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type ContentfulTag implements Node @derivedTypes @dontInfer {
+  title: String
+  slug: String
+  post: [ContentfulPost] @link(by: "id", from: "post___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulTagSys
+  node_locale: String
+  menu_sub_link: [ContentfulMenuSubLink] @link(by: "id", from: "menu sub link___NODE") @proxy(from: "menu sub link___NODE")
+}
+
+type ContentfulTagSys @derivedTypes {
+  revision: Int
+  contentType: ContentfulTagSysContentType
+}
+
+type ContentfulTagSysContentType @derivedTypes {
+  sys: ContentfulTagSysContentTypeSys
+}
+
+type ContentfulTagSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type ContentfulMenuSubLink implements Node @derivedTypes @dontInfer {
+  subLinks: String
+  title: String
+  menu: [ContentfulMenu] @link(by: "id", from: "menu___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulMenuSubLinkSys
+  node_locale: String
+}
+
+type ContentfulMenu implements Node @derivedTypes @dontInfer {
+  title: String
+  links: [ContentfulCustomMenuLinkContentfulMenuSubLinkUnion] @link(by: "id", from: "links___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulMenuSys
+  node_locale: String
+}
+
+union ContentfulCustomMenuLinkContentfulMenuSubLinkUnion = ContentfulCustomMenuLink | ContentfulMenuSubLink
+
+type ContentfulMenuSys @derivedTypes {
+  revision: Int
+  contentType: ContentfulMenuSysContentType
+}
+
+type ContentfulMenuSysContentType @derivedTypes {
+  sys: ContentfulMenuSysContentTypeSys
+}
+
+type ContentfulMenuSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type ContentfulMenuSubLinkSys @derivedTypes {
+  revision: Int
+  contentType: ContentfulMenuSubLinkSysContentType
+}
+
+type ContentfulMenuSubLinkSysContentType @derivedTypes {
+  sys: ContentfulMenuSubLinkSysContentTypeSys
+}
+
+type ContentfulMenuSubLinkSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type ContentfulCategorySys @derivedTypes {
+  revision: Int
+  contentType: ContentfulCategorySysContentType
+}
+
+type ContentfulCategorySysContentType @derivedTypes {
+  sys: ContentfulCategorySysContentTypeSys
+}
+
+type ContentfulCategorySysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type ContentfulModularPage implements Node @derivedTypes @dontInfer {
+  title: String
+  sections: [ContentfulModule] @link(by: "id", from: "sections___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulModularPageSys
+  node_locale: String
+}
+
+type ContentfulModularPageSys @derivedTypes {
+  revision: Int
+  contentType: ContentfulModularPageSysContentType
+}
+
+type ContentfulModularPageSysContentType @derivedTypes {
+  sys: ContentfulModularPageSysContentTypeSys
+}
+
+type ContentfulModularPageSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type ContentfulModuleSys @derivedTypes {
+  revision: Int
+  contentType: ContentfulModuleSysContentType
+}
+
+type ContentfulModuleSysContentType @derivedTypes {
+  sys: ContentfulModuleSysContentTypeSys
+}
+
+type ContentfulModuleSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulPage implements Node @dontInfer {
+  pdfUrl: String
+}
+
+type ContentfulPage implements Node @derivedTypes @dontInfer {
+  pdfUrl: String
+  seoTitle: String
+  metaDescription: MetaDescription
+  metaImage: String
+  title: String
+  slug: String
+  body: contentfulPageBodyTextNode @link(by: "id", from: "body___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulPageSys
+  node_locale: String
+}
+
+type MetaDescription {
+  internal: Content
+}
+
+type Content {
+  content: String
+}
+
+type contentfulPageBodyTextNode implements Node @dontInfer {
+  body: String
+}
+
+type ContentfulPageSys @derivedTypes {
+  revision: Int
+  contentType: ContentfulPageSysContentType
+}
+
+type ContentfulPageSysContentType @derivedTypes {
+  sys: ContentfulPageSysContentTypeSys
+}
+
+type ContentfulPageSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulPageMetaDescriptionTextNode implements Node @dontInfer {
+  metaDescription: String
+}
+
+type ContentfulCustomMenuLink implements Node @derivedTypes @dontInfer {
+  title: String
+  slug: String
+  menu: [ContentfulMenu] @link(by: "id", from: "menu___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulCustomMenuLinkSys
+  node_locale: String
+}
+
+type ContentfulCustomMenuLinkSys @derivedTypes {
+  revision: Int
+  contentType: ContentfulCustomMenuLinkSysContentType
+}
+
+type ContentfulCustomMenuLinkSysContentType @derivedTypes {
+  sys: ContentfulCustomMenuLinkSysContentTypeSys
+}
+
+type ContentfulCustomMenuLinkSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type ContentfulContentType implements Node @dontInfer {
+  name: String
+  displayField: String
+  description: String
+}

@@ -1,0 +1,62 @@
+.mobileShare{
+background-color: #333;
+box-shadow: 0 0 25px 0 rgba(0,0,0,.1);
+position: fixed;
+bottom: -100px;
+right: 0px;
+width: 100%;
+transition: bottom 1s;
+overflow: hidden;
+height: 100px;
+display: flex;
+justify-content: space-evenly;
+ align-items: center;
+ z-index:1000;
+}
+
+.mobileShare > div{
+  width:45px
+}
+
+.mobileShare.active{
+bottom: 0px;
+}
+
+.mobileShareClick{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  padding: 5px;
+  background-color: #8fc744;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+
+
+.mobileShareClick img{
+  position: relative;
+  width:100%;
+  margin-left:-2px;
+}
+
+.mobileSharePosition{
+  position: relative;
+  width:35px;
+  height:35px;
+}
+
+.socialIcon{
+  min-width:35px;
+  width:100%;
+  opacity:1;
+  transition: all 0.5s;
+}
+.socialIcon:hover{
+  opacity:.9;
+}
+
+.socialIcon:focus{
+  outline: none;
+}

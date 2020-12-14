@@ -1,0 +1,39 @@
+@keyframes buttonAnimation{
+0% {
+    width:100px;
+    height:100px;
+    opacity:1;
+}
+100% {
+  width:130px;
+  height:130px;
+  opacity:0;
+}
+}
+.loadButton{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: rgb(143, 199, 68);
+  position: relative;
+  cursor:pointer;
+  margin:15px auto 25px auto;
+}
+.loadButton:hover::after{
+  -webkit-animation: buttonAnimation 1s infinite;
+  -moz-animation: buttonAnimation 1s infinite;
+  -o-animation: buttonAnimation 1s infinite;
+  animation: buttonAnimation 1s infinite;
+}
+.loadButton::after{
+  content:'';
+  background:#8fc744;
+  width:100px;
+  height:100px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  border-radius: 50%;
+  z-index:0;
+}

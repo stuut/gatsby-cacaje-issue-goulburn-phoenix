@@ -1,0 +1,19 @@
+.socialCont{
+  margin: 0 auto;
+  padding:2em 0 0 0;
+}
+
+.socialIcon{
+  max-width:30px;
+  width:100%;
+  margin: 0 auto .5em auto;
+  opacity:.25;
+  transition: all 0.5s;
+}
+
+.socialIcon:hover{
+   opacity:.9;
+}
+.socialIcon:focus{
+  outline: none;
+}

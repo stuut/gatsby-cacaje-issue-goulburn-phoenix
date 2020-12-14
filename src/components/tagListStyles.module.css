@@ -1,0 +1,25 @@
+.taglist{
+  margin: 2em auto 2em auto;
+  max-width: 700px;
+  padding: 0px 20px;
+}
+
+.taglist li{
+  display: inline-block;
+}
+
+.taglist li a{
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  background: #8fc744;
+  padding: 0.5em 1em;
+  text-transform: capitalize;
+  margin: .5em 0.5em 0 0;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: #ffffff !important;
+  font-size: .8em;
+  border-radius: 25px;
+  max-height: 36px;
+  display: inline-block;
+}

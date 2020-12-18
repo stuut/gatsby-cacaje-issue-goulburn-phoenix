@@ -18,19 +18,7 @@ render() {
           />
           {this.props.headComponents}
         </head>
-        <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-                    var OneSignal = window.OneSignal || [];
-                    OneSignal.push(function() {
-                      OneSignal.init({
-                        appId: "9a413c26-7b35-482a-b36f-b32e76c39cba",
-                      });
-                    });
-                `,
-          }}
-        />
+      
         <body {...this.props.bodyAttributes}>
 
           {this.props.preBodyComponents}

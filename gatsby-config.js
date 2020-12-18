@@ -183,12 +183,6 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     {
-       resolve: 'gatsby-plugin-sw',
-       options: {
-         swPath: 'static/OneSignalSDKWorker.js', // Default to 'src/sw.js'
-       },
-     },
-    {
       resolve: 'gatsby-plugin-feed',
       options: {
         setup(ref) {

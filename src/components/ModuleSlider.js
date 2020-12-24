@@ -54,9 +54,10 @@ class IndexSlider extends React.Component {
     finalArray = orderBy(
       finalArray,
       // eslint-disable-next-line
-      [object => new moment(object.updatedAt, "YYYY-MM-DD")],
+      [object => new moment(object.publishDate, "YYYY-MM-DD")],
       ['desc']
     )
+
 
     if (this.props.coverStory || this.props.coverStory === true){
       var coverStory = true

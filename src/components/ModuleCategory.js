@@ -48,11 +48,6 @@ class ModuleCategory extends React.Component {
     finalArray.push(pageArray)
     finalArray = [].concat.apply([], finalArray);
     finalArray = finalArray.filter( (ele, index) => index === finalArray.findIndex( elem => elem.slug === ele.slug))
-    finalArray = orderBy(
-      finalArray,
-      // eslint-disable-next-line
-      [object => new moment(object.updatedAt, "YYYY-MM-DD")],['desc']
-    )
 
     finalArray = orderBy(finalArray, function(item) {
            return [object => new moment(object.publishDate, "YYYY-MM-DD")];

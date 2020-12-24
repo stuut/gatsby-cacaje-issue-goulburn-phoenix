@@ -5,50 +5,6 @@ require("dotenv").config({
 
 const config = require('./src/utils/siteConfig')
 
-const query = `{
-  allContentfulPost {
-     edges {
-       node {
-         id
-         slug
-         title
-         categories {
-            title
-          }
-         author {
-           title
-         }
-         publishDate
-         tags {
-           title
-         }
-         image {
-           title
-           resize(width: 300, height: 200) {
-             src
-             width
-             height
-           }
-         }
-         copy {
-           childMarkdownRemark {
-             excerpt(pruneLength: 120)
-           }
-         }
-       }
-     }
-  }
-}`;
-
-
-
-
-const queries = [
-  {
-    query,
-    transformer: ({ data }) => data.allContentfulPost.edges.map(({ node }) => node),
-  }
-];
 
 
 
@@ -100,16 +56,6 @@ module.exports = {
       },
     },
 
-    {
-      resolve: `gatsby-plugin-algolia`,
-      options: {
-      appId:  process.env.ALOGIA_APP_ID || '',
-      apiKey: process.env.ALGOLIA_ADMIN_KEY || '',
-      indexName: "Goulburn_Phoenix", // for all queries
-      queries,
-      chunkSize: 10000, // default: 1000
-      },
-    },
 
 
     {
@@ -192,22 +138,22 @@ module.exports = {
           return ret
         },
         query: `
-    {
-      site {
-        siteMetadata {
-          rssMetadata {
-            site_url
-            feed_url
-            title
-            description
-            image_url
-            author
-            copyright
+        {
+          site {
+            siteMetadata {
+              rssMetadata {
+                site_url
+                feed_url
+                title
+                description
+                image_url
+                author
+                copyright
+              }
+            }
           }
         }
-      }
-    }
-  `,
+      `,
         feeds: [
           {
             serialize(ctx) {
@@ -277,7 +223,7 @@ module.exports = {
                }
              }
            }
-      `,
+           `,
             output: '/rss.xml',
           },
         ],

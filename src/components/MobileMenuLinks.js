@@ -162,9 +162,9 @@ const MobileMenuLinks = () => {
     return (
       <div>
         <div className={`${headerStyles.newMobileMenuOverlay} ${menuActive ? headerStyles.newMobileMenuOverlayActive : headerStyles.newMobileMenuOverlayNotactive}`}></div>
-        <div role="button" style={{outline:'0'}} tabIndex={0} className={headerStyles.toggleMenu} onClick={() => setMenuState(!menuActive)} onKeyDown={() => setMenuState(!menuActive)}><span></span><span></span><span></span></div>
+        <div role="button" aria-label="Open Menu" style={{outline:'0'}} tabIndex={0} className={headerStyles.toggleMenu} onClick={() => setMenuState(!menuActive)} onKeyDown={() => setMenuState(!menuActive)}><span></span><span></span><span></span></div>
         <div className={`${headerStyles.newMobileMenu} ${menuActive ? headerStyles.open : headerStyles.closed}`}>
-        <div role="button" style={{outline:'0'}} tabIndex={0} className={headerStyles.closeMenu} onClick={() => setMenuState(!menuActive)} onKeyDown={() => setMenuState(!menuActive)}><span></span><span></span></div>
+        <div role="button" aria-label="Close Menu"  style={{outline:'0'}} tabIndex={0} className={headerStyles.closeMenu} onClick={() => setMenuState(!menuActive)} onKeyDown={() => setMenuState(!menuActive)}><span></span><span></span></div>
           {data.allContentfulMenu.edges[0].node.links.map((item, index) => {
             return(
               <div key={index} >

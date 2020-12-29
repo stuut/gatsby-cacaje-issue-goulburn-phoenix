@@ -58,7 +58,7 @@ module.exports = {
     {
     resolve: `gatsby-plugin-offline`,
       options: {
-        appendScript: require.resolve(`src/OneSignalSDKWorker.js`),
+        appendScript: require.resolve(`${__dirname}/src/OneSignalSDKWorker.js`),
       },
     },
 
